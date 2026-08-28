@@ -37,6 +37,12 @@ jobs:
       - name: Construire le site statique
         run: npm run build
 
+      - name: Adapter le site à l'adresse GitHub Pages
+        run: |
+          test -s dist/client/index.html
+          sed -i 's|/assets/|/BACHELET-PM/assets/|g; s|/favicon.svg|/BACHELET-PM/favicon.svg|g' dist/client/index.html dist/client/index.rsc
+          grep -q '/BACHELET-PM/assets/' dist/client/index.html
+
       - name: Désactiver Jekyll
         run: touch dist/client/.nojekyll
 
