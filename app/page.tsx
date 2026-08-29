@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import {
   ArrowRight,
   BadgeCheck,
@@ -15,6 +18,7 @@ import {
   Truck,
   Tv,
   Wrench,
+  X,
 } from "lucide-react";
 
 const phoneDisplay = "02 33 46 50 39";
@@ -90,6 +94,13 @@ const structuredData = {
 };
 
 export default function Home() {
+  const [showDemoNotice, setShowDemoNotice] = useState(false);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setShowDemoNotice(true), 3000);
+    return () => window.clearTimeout(timer);
+  }, []);
+
   return (
     <main>
       <script
@@ -324,6 +335,48 @@ export default function Home() {
         <a href={phoneHref}><Phone aria-hidden="true" /> Appeler</a>
         <a href={mapsHref} target="_blank" rel="noreferrer"><MapPin aria-hidden="true" /> Itinéraire</a>
       </div>
+
+      {showDemoNotice && (
+        <div className="demo-overlay" onMouseDown={() => setShowDemoNotice(false)}>
+          <section
+            className="demo-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="demo-notice-title"
+            onMouseDown={(event) => event.stopPropagation()}
+          >
+            <button
+              className="demo-close"
+              type="button"
+              onClick={() => setShowDemoNotice(false)}
+              aria-label="Fermer la fenêtre"
+            >
+              <X aria-hidden="true" />
+            </button>
+            <span className="demo-kicker">Une maquette Localia</span>
+            <h2 id="demo-notice-title">Bonjour Pierre et Marie,</h2>
+            <p>
+              Ce site a été conçu à titre de démonstration, spécialement pour
+              Bachelet PM. Il n&apos;a pas vocation à rester en ligne sous cette forme.
+            </p>
+            <p>
+              Dites-moi si vous souhaitez qu&apos;on le mette en place pour de bon,
+              avec votre propre nom de domaine, par exemple <strong>bachelet-pm.fr</strong>.
+            </p>
+            <div className="demo-actions">
+              <a
+                className="button button-primary"
+                href="mailto:gestion.localia@gmail.com?subject=Bachelet%20PM%20-%20le%20site%20vous%20pla%C3%AEt%20%3F"
+              >
+                Écrire à Thibaut <ArrowRight size={18} aria-hidden="true" />
+              </a>
+              <a className="demo-offers" href="https://localiapro.fr/" target="_blank" rel="noreferrer">
+                Découvrir les offres Localia
+              </a>
+            </div>
+          </section>
+        </div>
+      )}
     </main>
   );
 }
