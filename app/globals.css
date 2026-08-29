@@ -156,6 +156,21 @@ footer { color: #b8c4d0; background: #081b31; }
 
 .mobile-actions { display: none; }
 
+.demo-overlay { position: fixed; z-index: 100; inset: 0; display: grid; place-items: center; padding: 22px; background: rgba(5, 18, 33, .66); backdrop-filter: blur(5px); animation: demo-fade-in .25s ease both; }
+.demo-modal { position: relative; width: min(100%, 540px); padding: 42px; border: 1px solid rgba(255,255,255,.24); border-radius: 12px; color: var(--ink); background: #fff; box-shadow: 0 28px 90px rgba(0,0,0,.34); animation: demo-slide-up .34s cubic-bezier(.2,.8,.2,1) both; }
+.demo-kicker { display: inline-flex; margin-bottom: 15px; color: var(--accent-dark); font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.demo-modal h2 { margin: 0; font-size: clamp(29px, 5vw, 39px); letter-spacing: -.04em; line-height: 1.05; }
+.demo-modal p { margin: 18px 0 0; color: var(--ink-soft); font-size: 16px; line-height: 1.7; }
+.demo-modal strong { color: var(--blue); }
+.demo-close { position: absolute; top: 13px; right: 13px; width: 38px; height: 38px; display: grid; place-items: center; border: 0; border-radius: 50%; color: var(--ink-soft); background: #f1f4f7; cursor: pointer; }
+.demo-close:hover { color: #fff; background: var(--blue); }
+.demo-close svg { width: 19px; }
+.demo-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; margin-top: 30px; }
+.demo-actions .button { min-height: 49px; }
+.demo-offers { color: var(--blue); font-size: 14px; font-weight: 800; text-decoration: underline; text-underline-offset: 4px; }
+@keyframes demo-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes demo-slide-up { from { opacity: 0; transform: translateY(14px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
 @media (max-width: 920px) {
   nav { display: none; }
   .hero-content { width: min(720px, 83%); }
@@ -223,6 +238,11 @@ footer { color: #b8c4d0; background: #081b31; }
   .mobile-actions a { display: flex; align-items: center; justify-content: center; gap: 9px; font-size: 14px; font-weight: 800; }
   .mobile-actions a:first-child { background: var(--accent); }
   .mobile-actions svg { width: 19px; }
+  .demo-modal { padding: 35px 25px 27px; }
+  .demo-modal p { font-size: 15px; line-height: 1.62; }
+  .demo-actions { align-items: stretch; flex-direction: column; gap: 15px; }
+  .demo-actions .button { width: 100%; }
+  .demo-offers { text-align: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {
