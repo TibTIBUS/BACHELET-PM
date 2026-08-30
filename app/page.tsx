@@ -119,11 +119,11 @@ export default function Home() {
       <header className="site-header">
         <div className="shell nav-wrap">
           <a className="brand" href="#accueil" aria-label="Bachelet PM, accueil">
-            <span className="brand-mark" aria-hidden="true">BP</span>
-            <span className="brand-copy">
-              <strong>BACHELET PM</strong>
-              <small>ÉLECTROMÉNAGER · CRÉANCES</small>
-            </span>
+            <img
+              className="brand-logo"
+              src="./bachelet-pm-logo.png"
+              alt="Bachelet PM — Électroménager, dépannage, vente et SAV"
+            />
           </a>
           <nav aria-label="Navigation principale">
             <a href="#univers">Nos univers</a>
@@ -146,7 +146,7 @@ export default function Home() {
         <div className="shell hero-inner">
           <div className="hero-content">
             <p className="eyebrow">Vente · Livraison · Installation · Dépannage</p>
-            <h1>Votre électroménager, avec le service en plus.</h1>
+            <h1>Votre électroménager.<br /><span>Le service en plus.</span></h1>
             <p className="hero-lead">
               Conseils en magasin, livraison et installation à domicile, dépannage
               et réparation : un interlocuteur local vous accompagne de A à Z.
@@ -317,8 +317,11 @@ export default function Home() {
         <div className="shell footer-main">
           <div className="footer-brand">
             <a className="brand footer-logo" href="#accueil">
-              <span className="brand-mark" aria-hidden="true">BP</span>
-              <span className="brand-copy"><strong>BACHELET PM</strong><small>ÉLECTROMÉNAGER · CRÉANCES</small></span>
+              <img
+                className="brand-logo"
+                src="./bachelet-pm-logo.png"
+                alt="Bachelet PM — Électroménager, dépannage, vente et SAV"
+              />
             </a>
             <p>Vente, livraison, installation, dépannage et réparation d'électroménager, image et son.</p>
           </div>
